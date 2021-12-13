@@ -1,8 +1,6 @@
 import 'message.dart';
 
 class MessagesData {
-
-
   final List<Message> messages;
 
   MessagesData(this.messages);

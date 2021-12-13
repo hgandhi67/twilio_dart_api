@@ -1,5 +1,3 @@
-
-
 class Credential {
   final String _accountSid, _authToken;
   late String _twilioNumber, _cred;

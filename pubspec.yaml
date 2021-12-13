@@ -1,6 +1,6 @@
 name: twilio
-description: A new Flutter package project.
-version: 0.0.1
+description: A Package that helps with twilio API. Supports to send twilio programmable SMS and retrive all messages data from twilio.
+version: 0.0.1-a.1
 homepage: https://github.com/denishnavadiya123/Twilio.git
 
 environment:
