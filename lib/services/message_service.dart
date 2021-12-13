@@ -1,6 +1,6 @@
 import 'dart:convert';
+import 'dart:developer';
 
-import 'package:flutter/material.dart';
 import 'package:twilio/models/credential.dart';
 import 'package:twilio/models/message.dart';
 import 'package:twilio/models/messages_data.dart';
@@ -23,7 +23,7 @@ class MessageService {
 
       return messagesData;
     } else {
-      debugPrint("Something wrong");
+      log("Something wrong");
     }
   }
 
@@ -39,7 +39,7 @@ class MessageService {
       Message message = Message.fromJSON(json.decode(response.body));
       return message;
     } else {
-      debugPrint("Something wrong");
+      log("Something wrong");
     }
   }
 }

@@ -52,7 +52,7 @@ twilio.messages.sendMessage(String toNumber, [String message = ""]);
 //pageSize defaults to 10
 //Filter out numbers also
 
-SentSmsData data = await twilioFlutter.getMessageList(
+MessagesData messagesData = await twilioFlutter.getMessageList(
 {int pageSize = 10, String? toNumber, String? fromNumber});
 ```
 
