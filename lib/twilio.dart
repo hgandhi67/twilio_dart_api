@@ -9,13 +9,15 @@ export 'services/message_service.dart';
 class Twilio {
   late MessageService messages;
   late Credential credential;
+  static Twilio? instance;
 
   Twilio(
       {required String accountSid,
       required String authToken,
       required String twilioNumber}) {
     credential = Credential(accountSid, authToken, twilioNumber);
-    NetworkService();
     messages = MessageService();
+    NetworkService().init();
+    instance = this;
   }
 }

@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:http/http.dart' as http;
+import 'package:twilio/exceptions/twilio_network_exception.dart';
 import 'package:twilio/models/credential.dart';
 
 class NetworkResponse {
@@ -36,7 +36,9 @@ class NetworkService {
   late String url;
   late Map<String, String> headers;
 
-  NetworkService() {
+  NetworkService() {}
+
+  init() {
     instance = this;
     Credential credential = Credential.instance;
     url = '$_baseUri/$_version/Accounts/${credential.accountSid}/Messages.json';
@@ -63,7 +65,7 @@ class NetworkService {
       );
       return NetworkResponse(response.body, response.statusCode, response);
     } catch (e) {
-      log(e.toString());
+      throw new TwilioNetworkException(e.toString());
     }
   }
 
@@ -74,7 +76,7 @@ class NetworkService {
           await http.post(Uri.parse(url), headers: headers, body: body);
       return NetworkResponse(response.body, response.statusCode, response);
     } catch (e) {
-      log(e.toString());
+      throw new TwilioNetworkException(e.toString());
     }
   }
 }
